@@ -1,6 +1,3 @@
-Vb cu adrian si anunta pe teams
-Creaza backbone si pune pe git
-
 .Net core SDK
 https://dotnet.microsoft.com/download/dotnet-core
 Version 3.1
