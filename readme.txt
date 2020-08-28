@@ -53,7 +53,7 @@ https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?
 Logging
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1
 Authentication
-https://jasonwatmore.com/post/2019/10/11/aspnet-core-3-jwt-authentication-tutorial-with-example-api
+https://www.c-sharpcorner.com/article/jwt-json-web-token-authentication-in-asp-net-core/
 
 Homework:
 
