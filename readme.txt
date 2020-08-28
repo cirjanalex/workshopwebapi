@@ -48,11 +48,15 @@ Filtering
 
 Part II
 
+Overview of Authentication in AspNetCore
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-3.1
+JWT intro
+https://jwt.io/introduction/
 Options
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
 Logging
 https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1
-Authentication
+Jwt Authentication Tutorial
 https://www.c-sharpcorner.com/article/jwt-json-web-token-authentication-in-asp-net-core/
 
 Homework:
