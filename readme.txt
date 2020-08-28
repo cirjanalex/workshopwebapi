@@ -60,6 +60,7 @@ Jwt Authentication Tutorial
 https://www.c-sharpcorner.com/article/jwt-json-web-token-authentication-in-asp-net-core/
 Role based authorization
 not much to talk about, Jwt supports ClaimTypes.Role as parameter (https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimtypes?view=netcore-3.1)
+more at https://docs.microsoft.com/en-us/aspnet/core/security/authorization/introduction?view=aspnetcore-3.1
 
 Homework:
 
