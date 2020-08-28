@@ -1,3 +1,5 @@
+PART I
+
 .Net core SDK
 https://dotnet.microsoft.com/download/dotnet-core
 Version 3.1
@@ -9,7 +11,6 @@ Swagger: https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-
 
 
 Homework :
-
 
 Entities :
 User 
@@ -43,3 +44,24 @@ Filtering
 3. Swagger
 
 4. Unit testing (Nice to have)
+
+
+Part II
+
+Options
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options?view=aspnetcore-3.1
+Logging
+https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging/?view=aspnetcore-3.1
+Authentication
+https://jasonwatmore.com/post/2019/10/11/aspnet-core-3-jwt-authentication-tutorial-with-example-api
+
+Homework:
+
+=> Implement Authorization
+- Create a Profile controller for updating user info -> as user (Birthdate and Name), PATCH /profiles/<userid>, payload is either Name or Birthday, + GET
+- Change Users controller to authorize only admins
+- Login Controller -> anonymous
+
+Log token generation
+Validate input data
+
