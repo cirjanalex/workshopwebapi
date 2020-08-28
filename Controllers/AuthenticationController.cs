@@ -6,7 +6,9 @@ using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using WorkshopWebApi.Configuration;
 using WorkshopWebApi.Models;
 
 namespace WorkshopWebApi.Controllers
@@ -15,11 +17,11 @@ namespace WorkshopWebApi.Controllers
   [ApiController]
   public class AuthenticationController : ControllerBase
   {
-    private IConfiguration _config;
+    private readonly IOptions<JwtOptions> _jwtOptions;
 
-    public AuthenticationController(IConfiguration config)
+    public AuthenticationController(IOptions<JwtOptions> jwtOptions)
     {
-      _config = config;
+      _jwtOptions = jwtOptions;
     }
 
     [AllowAnonymous]
@@ -38,7 +40,7 @@ namespace WorkshopWebApi.Controllers
 
     private string GenerateJSONWebToken(AuthenticationData userInfo)
     {
-      var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+      var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.Value.Key));
       var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
       //TODO: to be changed to a model
@@ -49,8 +51,8 @@ namespace WorkshopWebApi.Controllers
         new Claim(ClaimTypes.Role, role)
       };
 
-      var token = new JwtSecurityToken(_config["Jwt:Issuer"],
-        _config["Jwt:Issuer"],
+      var token = new JwtSecurityToken(_jwtOptions.Value.Issuer,
+        _jwtOptions.Value.Issuer,
         claims,
         expires: DateTime.Now.AddMinutes(120),
         signingCredentials: credentials);

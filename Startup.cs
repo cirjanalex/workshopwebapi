@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.Extensions.Configuration;
+using WorkshopWebApi.Configuration;
 
 namespace WorkshopWebApi
 {
@@ -28,6 +29,8 @@ namespace WorkshopWebApi
     // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
     public void ConfigureServices(IServiceCollection services)
     {
+      services.Configure<JwtOptions>(Configuration.GetSection("Jwt"));
+
       services.AddControllers();
       services.AddSingleton<IUserProvider, InMemoryUserProvider>();
       services.AddSwaggerGen();
