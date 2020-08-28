@@ -6,7 +6,7 @@ using WorkshopWebApi.Providers;
 
 namespace WorkshopWebApi.Controllers
 {
-  [Authorize]
+  [Authorize(Roles = "admin")]
   [Route("[controller]")]
   [ApiController]
   public class UsersController : ControllerBase

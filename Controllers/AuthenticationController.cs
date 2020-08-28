@@ -1,6 +1,7 @@
 
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -40,9 +41,17 @@ namespace WorkshopWebApi.Controllers
       var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
       var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
 
+      //TODO: to be changed to a model
+      var role = (userInfo.Username == "lmusat") ? "admin" : "user";
+
+      var claims = new[] {
+        new Claim(JwtRegisteredClaimNames.Sub, userInfo.Username),
+        new Claim(ClaimTypes.Role, role)
+      };
+
       var token = new JwtSecurityToken(_config["Jwt:Issuer"],
         _config["Jwt:Issuer"],
-        null,
+        claims,
         expires: DateTime.Now.AddMinutes(120),
         signingCredentials: credentials);
 
